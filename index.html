@@ -234,10 +234,42 @@
     .footer-links a { font-size: 11px; color: var(--muted); text-decoration: none; }
     .footer-links a:hover { color: var(--accent); }
 
+    /* About */
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: start; }
+    .about-text p { font-size: 14px; color: var(--muted); line-height: 1.8; margin-bottom: 1rem; }
+    .about-text p:last-child { margin-bottom: 0; }
+    .cred-list { display: flex; flex-direction: column; gap: 10px; }
+    .cred-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      background: var(--bg);
+      border: 0.5px solid var(--border);
+      border-radius: 10px;
+      padding: 0.9rem 1rem;
+    }
+    .cred-icon { color: var(--accent); font-size: 18px; margin-top: 1px; flex-shrink: 0; }
+    .cred-title { font-size: 13px; font-weight: 500; margin-bottom: 2px; }
+    .cred-sub { font-size: 11px; color: var(--muted); font-family: var(--mono); }
+    .aws-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--accent-light);
+      color: var(--accent-dark);
+      border: 0.5px solid var(--accent-border);
+      border-radius: 4px;
+      font-family: var(--mono);
+      font-size: 11px;
+      padding: 4px 10px;
+      margin-top: 1rem;
+    }
+
     /* Mobile */
     @media (max-width: 500px) {
       .nav-links { gap: 1rem; }
       .contact-box { flex-direction: column; }
+      .about-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -249,6 +281,7 @@
     <div class="nav-links">
       <a href="#services">Services</a>
       <a href="#work">Work</a>
+      <a href="#about">About</a>
       <a href="#stack">Stack</a>
       <a href="#contact">Contact</a>
     </div>
@@ -283,6 +316,16 @@
         <div class="s-icon"><i class="ti ti-bolt" aria-hidden="true"></i></div>
         <h3>AI automation</h3>
         <p>Connect your tools and automate repetitive tasks — invoicing, follow-ups, data entry and more.</p>
+      </div>
+      <div class="service-card">
+        <div class="s-icon"><i class="ti ti-cloud" aria-hidden="true"></i></div>
+        <h3>Cloud setup & migration</h3>
+        <p>Move your business to the cloud safely and properly. AWS certified — storage, hosting, and cloud tools set up right.</p>
+      </div>
+      <div class="service-card">
+        <div class="s-icon"><i class="ti ti-layout-dashboard" aria-hidden="true"></i></div>
+        <h3>CMS setup</h3>
+        <p>Take control of your own content with Contentful, WordPress, or similar — no developer needed for day-to-day updates.</p>
       </div>
     </div>
   </div>
@@ -319,14 +362,59 @@
 
   <div class="divider"></div>
 
-  <div class="section" id="stack">
+  <div class="section" id="about">
+    <div class="section-label">About & credentials</div>
+    <div class="about-grid">
+      <div class="about-text">
+        <p>I'm Champika, a Melbourne-based tech professional with a background in digital content publishing. I've built and shipped real production code — React components deployed across multiple websites, JavaScript automation scripts, and front-end projects using Next.js and Contentful CMS.</p>
+        <p>I started freelancing to help local Melbourne businesses get the same quality tech that larger companies take for granted — without the agency price tag or the jargon.</p>
+        <div class="aws-badge"><i class="ti ti-rosette" aria-hidden="true"></i> AWS Certified Cloud Practitioner</div>
+      </div>
+      <div class="cred-list">
+        <div class="cred-item">
+          <i class="ti ti-certificate cred-icon" aria-hidden="true"></i>
+          <div>
+            <div class="cred-title">AWS Certified Cloud Practitioner</div>
+            <div class="cred-sub">Amazon Web Services · Active</div>
+          </div>
+        </div>
+        <div class="cred-item">
+          <i class="ti ti-code cred-icon" aria-hidden="true"></i>
+          <div>
+            <div class="cred-title">React & JavaScript</div>
+            <div class="cred-sub">Production components · Digital publishing</div>
+          </div>
+        </div>
+        <div class="cred-item">
+          <i class="ti ti-brand-nextjs cred-icon" aria-hidden="true"></i>
+          <div>
+            <div class="cred-title">Next.js + Contentful CMS</div>
+            <div class="cred-sub">Headless CMS · Front-end integration</div>
+          </div>
+        </div>
+        <div class="cred-item">
+          <i class="ti ti-map-pin cred-icon" aria-hidden="true"></i>
+          <div>
+            <div class="cred-title">Based in Melbourne, VIC</div>
+            <div class="cred-sub">Available in-person or remote</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
     <div class="section-label">My stack</div>
     <div class="stack-row">
       <span class="tag accent">HTML / CSS</span>
       <span class="tag accent">JavaScript</span>
+      <span class="tag accent">React</span>
+      <span class="tag accent">Next.js</span>
       <span class="tag accent">WordPress</span>
+      <span class="tag accent">Contentful CMS</span>
       <span class="tag accent">Make.com</span>
       <span class="tag accent">Zapier</span>
+      <span class="tag accent">AWS</span>
       <span class="tag">Figma</span>
       <span class="tag">Python</span>
       <span class="tag">Google Workspace</span>
@@ -359,9 +447,9 @@
   <footer>
     <p>© 2026 ChampikaDP · Melbourne</p>
     <div class="footer-links">
-      <a href="#">LinkedIn</a>
-      <a href="#">Airtasker</a>
-      <a href="#">GitHub</a>
+      <a href="https://www.linkedin.com/in/champikadp/">LinkedIn</a>
+      <a href="https://www.airtasker.com/users/champika-d-273970/">Airtasker</a>
+      <a href="https://github.com/champikadp">GitHub</a>
     </div>
   </footer>
 
