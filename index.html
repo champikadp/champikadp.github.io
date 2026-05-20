@@ -1,1 +1,370 @@
-Hello World
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>YourName.dev — Freelance Web & Tech, Melbourne</title>
+  <meta name="description" content="Freelance web developer and IT support based in Melbourne. I build websites, fix tech, and automate the boring stuff." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --serif: 'DM Serif Display', serif;
+      --mono: 'DM Mono', monospace;
+      --sans: 'DM Sans', sans-serif;
+      --accent: #1D9E75;
+      --accent-light: #E1F5EE;
+      --accent-border: #9FE1CB;
+      --accent-dark: #085041;
+    }
+
+    /* Light mode */
+    body {
+      --ink: #1a1a1a;
+      --muted: #6b6b6b;
+      --surface: #f5f5f3;
+      --bg: #ffffff;
+      --border: rgba(0,0,0,0.12);
+      --border-mid: rgba(0,0,0,0.25);
+      font-family: var(--sans);
+      color: var(--ink);
+      background: var(--bg);
+      line-height: 1.6;
+    }
+
+    /* Dark mode */
+    @media (prefers-color-scheme: dark) {
+      body {
+        --ink: #f0ede8;
+        --muted: #9a9792;
+        --surface: #1e1e1c;
+        --bg: #141412;
+        --border: rgba(255,255,255,0.12);
+        --border-mid: rgba(255,255,255,0.25);
+        --accent-light: #04342C;
+        --accent-border: #0F6E56;
+        --accent-dark: #9FE1CB;
+      }
+    }
+
+    .port { max-width: 720px; margin: 0 auto; padding: 0 1rem; }
+
+    /* Nav */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.2rem 0;
+      border-bottom: 0.5px solid var(--border);
+    }
+    .logo { font-family: var(--mono); font-size: 13px; color: var(--accent); letter-spacing: 0.08em; text-decoration: none; }
+    .nav-links { display: flex; gap: 1.5rem; }
+    .nav-links a { font-size: 13px; color: var(--muted); text-decoration: none; transition: color .2s; }
+    .nav-links a:hover { color: var(--ink); }
+
+    /* Hero */
+    .hero { padding: 3rem 0 2rem; }
+    .hero-tag {
+      font-family: var(--mono);
+      font-size: 12px;
+      color: var(--accent);
+      letter-spacing: 0.1em;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .hero-tag::before { content: ''; display: inline-block; width: 20px; height: 1px; background: var(--accent); }
+    h1 { font-family: var(--serif); font-size: clamp(2rem, 6vw, 3.2rem); line-height: 1.15; margin-bottom: 1.2rem; font-weight: 400; }
+    h1 em { font-style: italic; color: var(--accent); }
+    .hero-sub { font-size: 15px; color: var(--muted); line-height: 1.7; max-width: 520px; margin-bottom: 2rem; }
+    .hero-btns { display: flex; gap: 12px; flex-wrap: wrap; }
+    .btn-primary {
+      background: var(--ink);
+      color: var(--bg);
+      border: none;
+      padding: 11px 24px;
+      border-radius: 4px;
+      font-size: 13px;
+      font-family: var(--sans);
+      cursor: pointer;
+      font-weight: 500;
+      text-decoration: none;
+      display: inline-block;
+      transition: opacity .2s;
+    }
+    .btn-primary:hover { opacity: 0.8; }
+    .btn-outline {
+      background: transparent;
+      color: var(--ink);
+      border: 0.5px solid var(--border-mid);
+      padding: 11px 24px;
+      border-radius: 4px;
+      font-size: 13px;
+      font-family: var(--sans);
+      cursor: pointer;
+      font-weight: 400;
+      text-decoration: none;
+      display: inline-block;
+      transition: background .2s;
+    }
+    .btn-outline:hover { background: var(--surface); }
+
+    /* Divider */
+    .divider { height: 0.5px; background: var(--border); margin: 0; }
+
+    /* Sections */
+    .section { padding: 2.5rem 0; }
+    .section-label {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--muted);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+    }
+
+    /* Services */
+    .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; }
+    .service-card {
+      background: var(--bg);
+      border: 0.5px solid var(--border);
+      border-radius: 12px;
+      padding: 1.2rem;
+      transition: border-color .2s, background .2s;
+    }
+    .service-card:hover { border-color: var(--accent); background: var(--accent-light); }
+    .s-icon {
+      width: 32px;
+      height: 32px;
+      background: var(--accent-light);
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 12px;
+      color: var(--accent);
+      font-size: 16px;
+    }
+    .service-card h3 { font-size: 14px; font-weight: 500; margin-bottom: 6px; }
+    .service-card p { font-size: 12px; color: var(--muted); line-height: 1.6; }
+
+    /* Stack */
+    .stack-row { display: flex; flex-wrap: wrap; gap: 8px; }
+    .tag {
+      font-family: var(--mono);
+      font-size: 11px;
+      padding: 5px 12px;
+      border-radius: 4px;
+      background: var(--surface);
+      color: var(--muted);
+      border: 0.5px solid var(--border);
+    }
+    .tag.accent {
+      background: var(--accent-light);
+      color: var(--accent-dark);
+      border-color: var(--accent-border);
+    }
+
+    /* Projects */
+    .project-card {
+      border: 0.5px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      margin-bottom: 12px;
+    }
+    .proj-header { padding: 1.2rem 1.4rem; display: flex; justify-content: space-between; align-items: flex-start; }
+    .proj-status {
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--accent);
+      background: var(--accent-light);
+      padding: 3px 10px;
+      border-radius: 100px;
+      border: 0.5px solid var(--accent-border);
+      white-space: nowrap;
+      margin-left: 12px;
+    }
+    .proj-title { font-size: 15px; font-weight: 500; margin-bottom: 4px; }
+    .proj-desc { font-size: 13px; color: var(--muted); line-height: 1.6; padding: 0 1.4rem 1.2rem; }
+    .proj-footer {
+      padding: 0.8rem 1.4rem;
+      border-top: 0.5px solid var(--border);
+      background: var(--surface);
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    /* Contact */
+    .contact-box {
+      background: var(--surface);
+      border-radius: 12px;
+      border: 0.5px solid var(--border);
+      padding: 2rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+    .contact-box h2 { font-family: var(--serif); font-size: 1.6rem; font-weight: 400; max-width: 300px; line-height: 1.3; }
+    .contact-info { display: flex; flex-direction: column; gap: 10px; }
+    .contact-item { display: flex; align-items: center; gap: 10px; font-size: 13px; color: var(--muted); }
+    .contact-item i { color: var(--accent); font-size: 16px; }
+    .contact-item a { color: var(--muted); text-decoration: none; }
+    .contact-item a:hover { color: var(--accent); }
+
+    /* Footer */
+    footer {
+      padding: 1.2rem 0;
+      border-top: 0.5px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    footer p { font-family: var(--mono); font-size: 11px; color: var(--muted); }
+    .footer-links { display: flex; gap: 1rem; }
+    .footer-links a { font-size: 11px; color: var(--muted); text-decoration: none; }
+    .footer-links a:hover { color: var(--accent); }
+
+    /* Mobile */
+    @media (max-width: 500px) {
+      .nav-links { gap: 1rem; }
+      .contact-box { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+<div class="port">
+
+  <nav>
+    <a href="#" class="logo">YourName.dev</a>
+    <div class="nav-links">
+      <a href="#services">Services</a>
+      <a href="#work">Work</a>
+      <a href="#stack">Stack</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+
+  <div class="hero">
+    <div class="hero-tag">Available for freelance · Melbourne, AU</div>
+    <h1>I build websites,<br>fix tech, and <em>automate</em><br>the boring stuff.</h1>
+    <p class="hero-sub">Freelance developer helping Melbourne small businesses get online, stay running, and save hours every week with smart automation.</p>
+    <div class="hero-btns">
+      <a href="#work" class="btn-primary">See my work</a>
+      <a href="#contact" class="btn-outline">Get in touch</a>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="section" id="services">
+    <div class="section-label">What I do</div>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="s-icon"><i class="ti ti-world" aria-hidden="true"></i></div>
+        <h3>Web development</h3>
+        <p>Fast, clean websites for tradies, cafés, and local businesses that actually show up on Google.</p>
+      </div>
+      <div class="service-card">
+        <div class="s-icon"><i class="ti ti-device-laptop" aria-hidden="true"></i></div>
+        <h3>IT support</h3>
+        <p>Setup, troubleshooting, and cloud migration for small teams who just want things to work.</p>
+      </div>
+      <div class="service-card">
+        <div class="s-icon"><i class="ti ti-bolt" aria-hidden="true"></i></div>
+        <h3>AI automation</h3>
+        <p>Connect your tools and automate repetitive tasks — invoicing, follow-ups, data entry and more.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="section" id="work">
+    <div class="section-label">Recent work</div>
+    <div class="project-card">
+      <div class="proj-header">
+        <div class="proj-title">Local café website redesign</div>
+        <span class="proj-status">Completed</span>
+      </div>
+      <div class="proj-desc">Rebuilt a Melbourne café's outdated site with a mobile-first design, online menu, and Google Maps integration. Organic traffic up 40% in 6 weeks.</div>
+      <div class="proj-footer">
+        <span class="tag">HTML/CSS</span>
+        <span class="tag">WordPress</span>
+        <span class="tag">SEO</span>
+      </div>
+    </div>
+    <div class="project-card">
+      <div class="proj-header">
+        <div class="proj-title">Tradie invoice automation</div>
+        <span class="proj-status">Completed</span>
+      </div>
+      <div class="proj-desc">Built a Make.com workflow that auto-generates and sends invoices from job completion forms — saving 4+ hours per week.</div>
+      <div class="proj-footer">
+        <span class="tag">Make.com</span>
+        <span class="tag">Xero API</span>
+        <span class="tag">Automation</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="section" id="stack">
+    <div class="section-label">My stack</div>
+    <div class="stack-row">
+      <span class="tag accent">HTML / CSS</span>
+      <span class="tag accent">JavaScript</span>
+      <span class="tag accent">WordPress</span>
+      <span class="tag accent">Make.com</span>
+      <span class="tag accent">Zapier</span>
+      <span class="tag">Figma</span>
+      <span class="tag">Python</span>
+      <span class="tag">Google Workspace</span>
+      <span class="tag">Microsoft 365</span>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="section" id="contact">
+    <div class="contact-box">
+      <h2>Got a project?<br>Let's talk.</h2>
+      <div class="contact-info">
+        <div class="contact-item">
+          <i class="ti ti-mail" aria-hidden="true"></i>
+          <a href="mailto:hello@yourname.dev">hello@yourname.dev</a>
+        </div>
+        <div class="contact-item">
+          <i class="ti ti-map-pin" aria-hidden="true"></i>
+          <span>Melbourne, Victoria</span>
+        </div>
+        <div class="contact-item">
+          <i class="ti ti-clock" aria-hidden="true"></i>
+          <span>Usually replies within 24hrs</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>© 2026 YourName.dev · Melbourne</p>
+    <div class="footer-links">
+      <a href="#">LinkedIn</a>
+      <a href="#">Airtasker</a>
+      <a href="#">GitHub</a>
+    </div>
+  </footer>
+
+</div>
+</body>
+</html>
