@@ -190,6 +190,20 @@
       margin-left: 12px;
     }
     .proj-title { font-size: 15px; font-weight: 500; margin-bottom: 4px; }
+    .proj-title a {
+      color: var(--ink);
+      text-decoration: none;
+      transition: color .2s;
+    }
+    .proj-title a:hover { color: var(--accent); }
+    .proj-link-icon {
+      font-size: 13px;
+      color: var(--muted);
+      margin-left: 6px;
+      vertical-align: middle;
+      transition: color .2s;
+    }
+    .proj-title a:hover .proj-link-icon { color: var(--accent); }
     .proj-desc { font-size: 13px; color: var(--muted); line-height: 1.6; padding: 0 1.4rem 1.2rem; }
     .proj-footer {
       padding: 0.8rem 1.4rem;
@@ -198,6 +212,37 @@
       display: flex;
       gap: 8px;
       flex-wrap: wrap;
+    }
+
+    /* About */
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: start; }
+    .about-text p { font-size: 14px; color: var(--muted); line-height: 1.8; margin-bottom: 1rem; }
+    .about-text p:last-child { margin-bottom: 0; }
+    .cred-list { display: flex; flex-direction: column; gap: 10px; }
+    .cred-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      background: var(--bg);
+      border: 0.5px solid var(--border);
+      border-radius: 10px;
+      padding: 0.9rem 1rem;
+    }
+    .cred-icon { color: var(--accent); font-size: 18px; margin-top: 1px; flex-shrink: 0; }
+    .cred-title { font-size: 13px; font-weight: 500; margin-bottom: 2px; }
+    .cred-sub { font-size: 11px; color: var(--muted); font-family: var(--mono); }
+    .aws-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--accent-light);
+      color: var(--accent-dark);
+      border: 0.5px solid var(--accent-border);
+      border-radius: 4px;
+      font-family: var(--mono);
+      font-size: 11px;
+      padding: 4px 10px;
+      margin-top: 1rem;
     }
 
     /* Contact */
@@ -211,12 +256,13 @@
     .contact-left p { font-size: 13px; color: var(--muted); line-height: 1.7; margin-bottom: 1.5rem; }
     .contact-detail { display: flex; align-items: center; gap: 8px; font-size: 12px; color: var(--muted); margin-bottom: 8px; }
     .contact-detail i { color: var(--accent); font-size: 15px; }
-    .contact-form { display: flex; flex-direction: column; gap: 12px; }
-    .form-group { display: flex; flex-direction: column; gap: 5px; }
+    .contact-form { display: flex; flex-direction: column; gap: 12px; min-width: 0; }
+    .form-group { display: flex; flex-direction: column; gap: 5px; min-width: 0; }
     .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
     label { font-family: var(--mono); font-size: 11px; color: var(--muted); letter-spacing: 0.06em; }
     input[type="text"], input[type="email"], textarea {
       width: 100%;
+      min-width: 0;
       padding: 10px 12px;
       border: 0.5px solid var(--border);
       border-radius: 8px;
@@ -278,37 +324,6 @@
     .footer-links { display: flex; gap: 1rem; }
     .footer-links a { font-size: 11px; color: var(--muted); text-decoration: none; }
     .footer-links a:hover { color: var(--accent); }
-
-    /* About */
-    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: start; }
-    .about-text p { font-size: 14px; color: var(--muted); line-height: 1.8; margin-bottom: 1rem; }
-    .about-text p:last-child { margin-bottom: 0; }
-    .cred-list { display: flex; flex-direction: column; gap: 10px; }
-    .cred-item {
-      display: flex;
-      align-items: flex-start;
-      gap: 12px;
-      background: var(--bg);
-      border: 0.5px solid var(--border);
-      border-radius: 10px;
-      padding: 0.9rem 1rem;
-    }
-    .cred-icon { color: var(--accent); font-size: 18px; margin-top: 1px; flex-shrink: 0; }
-    .cred-title { font-size: 13px; font-weight: 500; margin-bottom: 2px; }
-    .cred-sub { font-size: 11px; color: var(--muted); font-family: var(--mono); }
-    .aws-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      background: var(--accent-light);
-      color: var(--accent-dark);
-      border: 0.5px solid var(--accent-border);
-      border-radius: 4px;
-      font-family: var(--mono);
-      font-size: 11px;
-      padding: 4px 10px;
-      margin-top: 1rem;
-    }
 
     /* Mobile */
     @media (max-width: 500px) {
@@ -382,20 +397,25 @@
     <div class="section-label">Recent work</div>
     <div class="project-card">
       <div class="proj-header">
-        <div class="proj-title">Local café website redesign</div>
-        <span class="proj-status">Completed</span>
+        <div class="proj-title">
+          <a href="https://champikadp.github.io/wgs-demo" target="_blank" rel="noopener">
+            Wollert General Store Website Design
+            <i class="ti ti-external-link proj-link-icon" aria-hidden="true"></i>
+          </a>
+        </div>
+        <span class="proj-status">Concept</span>
       </div>
-      <div class="proj-desc">Rebuilt a Melbourne café's outdated site with a mobile-first design, online menu, and Google Maps integration. Organic traffic up 40% in 6 weeks.</div>
+      <div class="proj-desc">Designed and built a full concept website for a Melbourne local store — including dynamic open/closed hours, Google Maps integration, mobile-first layout, and a warm heritage aesthetic matching the business character.</div>
       <div class="proj-footer">
         <span class="tag">HTML/CSS</span>
-        <span class="tag">WordPress</span>
-        <span class="tag">SEO</span>
+        <span class="tag">JavaScript</span>
+        <span class="tag">Google Maps</span>
       </div>
     </div>
     <div class="project-card">
       <div class="proj-header">
         <div class="proj-title">Tradie invoice automation</div>
-        <span class="proj-status">Completed</span>
+        <span class="proj-status">Concept</span>
       </div>
       <div class="proj-desc">Built a Make.com workflow that auto-generates and sends invoices from job completion forms — saving 4+ hours per week.</div>
       <div class="proj-footer">
@@ -449,7 +469,9 @@
     </div>
   </div>
 
+  <div class="divider"></div>
 
+  <div class="section" id="stack">
     <div class="section-label">My stack</div>
     <div class="stack-row">
       <span class="tag accent">HTML / CSS</span>
@@ -480,7 +502,7 @@
         <div class="contact-detail"><i class="ti ti-clock" aria-hidden="true"></i> Replies within 24hrs</div>
         <div class="contact-detail"><i class="ti ti-device-laptop" aria-hidden="true"></i> Remote & in-person available</div>
       </div>
-      <div>
+      <div style="min-width:0;">
         <div class="form-success" id="form-success">
           <i class="ti ti-circle-check" aria-hidden="true"></i>
           Thanks for reaching out, I'll be in touch within 24 hours!
